@@ -2,18 +2,18 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="fonts/font-face.css">
-		<link href='tabulous.css' rel='stylesheet' type='text/css'>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-		<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
-		<script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
-		<script type="text/javascript" src="tabulous.js"></script>
-		<script type="text/javascript" src="js.js"></script>
-		<script type="text/javascript" src="js/main.js"></script>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<link rel="stylesheet" href="/resources/demos/style.css">
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script src="js/main.js"></script>
+		<script src="js/slider.js"></script>
+		<script src="js/popup.js"></script>
 	</head>
-	<title>Jkaros
-	</title>
+	<title>Jkaros</title>
 	<body>
 		<div id="wrapper">
 			<nav>
@@ -49,9 +49,25 @@
 			</nav>
 			<content>
 				<div class="layout">
-					<div class="slider">
-						<img src="images/photo-1.png">
+					<div class="slideshow-container">
+						<div class="mySlides fade">
+							<img src="images/photo-1.png" style="width: 100%" >
+						</div> 
+						<div class="mySlides fade" style="display: none;">
+							<img src="images/photo-1.png" style="width: 100%" >
+						</div> 
+						<div class="mySlides fade" style="display: none;">
+							<img src="images/photo-1.png" style="width: 100%" >
+						</div> 
+						<a  class="prev" onclick="plusSlides(-1)">&#10094</a>
+						<a  class="next" onclick="plusSlides(1)">&#10095</a>
 							
+					</div>
+					<br>
+					<div style="text-align: center;">
+						<span class="dot" onclick="currentSlide(1)"></span>
+						<span class="dot" onclick="currentSlide(2)"></span>
+						<span class="dot" onclick="currentSlide(3)"></span>
 					</div>
 					<div class="topic">
 						<div class="heading">
@@ -63,12 +79,12 @@
 					</div>
 					<div id="tabs">
 						<ul>
-					        <li><a href="#tabs-1" title="">Web Design</a></li>
-					        <li><a href="#tabs-2" title="">Photography</a></li>
-					        <li><a href="#tabs-3" title="">Graphics</a></li>
+					        <li><a href="#tabs-1">Web Design</a></li>
+					        <li><a href="#tabs-2">Photography</a></li>
+					        <li><a href="#tabs-3">Graphics</a></li>
    						</ul>
 						<div id="tabs_container">
-						    <div id="tabs-1 active">
+						    <div id="tabs-1">
 						        <div class="photo-tab">
 						        	<img src="images/photo-2.png">
 						        </div>
@@ -100,7 +116,7 @@
 						    </div>
 						    <div id="tabs-2">
 						        <div class="photo-tab">
-						        	<img src="images/photo-2.png">
+						        	<img src="images/photo-gal-2.png">
 						        </div>
 						        <div class="post-tab">
 						        	<div class="heading">
@@ -130,11 +146,11 @@
 						    </div>
 						    <div id="tabs-3">
 						        <div class="photo-tab">
-						        	<img src="images/photo-2.png">
+						        	<img src="images/photo-gal-1.png">
 						        </div>
 						        <div class="post-tab">
 						        	<div class="heading">
-						        		<h4>Ipsum Fusce Aenean Cursus Euismod</h4>
+						        		<h4>Ipsum Fusce Aenean Cursus Euismod </h4>
 						        	</div>
 						        	<div class="text">
 						        		<p>Donec ullamcorper nulla non metus auctor fringilla. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla. Curabitur blandit tempus porttitor. Cras mattis consectetur purus sit amet fermentum. </p>
@@ -176,19 +192,19 @@
 							<img src="images/photo-gal-1.png">
 						</div>
 						<div class="photo-block">
-							<img src="images/photo-gal-2.png">
+							<img src="images/photo-gal-2.png" class="expanded">
 						</div>
 						<div class="photo-block">
-							<img src="images/photo-gal-3.png">
+							<img src="images/photo-gal-3.png" class="expanded">
 						</div>
 						<div class="photo-block">
-							<img src="images/photo-gal-4.png">
+							<img src="images/photo-gal-4.png" class="expanded">
 						</div>
 						<div class="photo-block">
-							<img src="images/photo-gal-5.png">
+							<img src="images/photo-gal-5.png" class="expanded">
 						</div>
 						<div class="photo-block">
-							<img src="images/photo-gal-6.png">
+							<img src="images/photo-gal-6.png" class="expanded">
 						</div>
 					</div>
 					<div class="line">
@@ -312,6 +328,7 @@
 							<img src="images/twitter-icon.png">
 							<p>Vestibulum id ligula porta euismod semper. auctor dolor fermentum.</p>
 							<a href="#"> 2 days ago</a>
+							<br>
 							<img src="images/linner-small.png">
 						</div>
 						<div class="post">
@@ -353,12 +370,24 @@
 						<a href="#">elemis</a>
 					</div>
 					<div class="soc-icons">
-						<img src="images/icon-rss.png">
-						<img src="images/icon-fb.png">
-						<img src="images/icon-tw.png">
-						<img src="images/icon-dr.png">
-						<img src="images/icon-pin.png">
-						<img src="images/icon-ln.png">
+						<a href="#">
+							<img src="images/icon-rss.png">
+						</a>
+						<a href="#">
+							<img src="images/icon-fb.png">
+						</a>
+						<a href="#">	
+							<img src="images/icon-tw.png">
+						</a>
+						<a href="#">
+							<img src="images/icon-dr.png">
+						</a>
+						<a href="#">	
+							<img src="images/icon-pin.png">
+						</a>
+						<a href="#">	
+							<img src="images/icon-ln.png">
+						</a>	
 					</div>
 				</div>	
 			</footer>
